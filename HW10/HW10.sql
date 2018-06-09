@@ -140,3 +140,106 @@ ON (p.customer_id = c.customer_id)
 GROUP BY p.customer_id
 ORDER BY last_name;
 
+-- 7a. The music of Queen and Kris Kristofferson have seen an unlikely resurgence. 
+-- As an unintended consequence, films starting with the letters K and Q have also soared in popularity. 
+-- Use subqueries to display the titles of movies starting with the letters K and Q whose language is English.
+
+SELECT title
+FROM film
+WHERE language_id IN
+(
+  SELECT language_id
+  FROM language
+  WHERE name = 'English'
+);
+
+-- 7b. Use subqueries to display all actors who appear in the film Alone Trip.
+
+select first_name, last_name
+from actor
+where actor_id in
+	(select actor_id
+    from film_actor
+    where film_id in
+		(select film_id
+        from film
+        where title = 'ALONE TRIP'
+        )
+	);
+    
+-- 7c. You want to run an email marketing campaign in Canada, for which you will need the names
+--  and email addresses of all Canadian customers. Use joins to retrieve this information.
+
+select first_name, last_name
+from customer
+inner join address on address.address_id = customer.address_id
+inner join city on city.city_id = address.city_id
+inner join country on country.country_id = city.country_id
+where country.country = 'Canada';
+
+-- 7d. Sales have been lagging among young families, and you wish to target all family movies for a promotion. Identify all movies categorized as famiy films.
+
+select title
+from film
+inner join film_category on film_category.film_id = film.film_id
+inner join category on category.category_id = film_category.category_id
+where category.name = 'Family';
+
+ -- 7e. Display the most frequently rented movies in descending order.
+
+select * from film;
+select * from inventory;
+select * from rental;
+
+select title, count(*)
+from film
+inner join inventory on inventory.film_id = film.film_id
+inner join rental on rental.inventory_id = inventory.inventory_id
+group by film.title order by count(*) desc;
+
+-- 7f. Write a query to display how much business, in dollars, each store brought in.
+
+select store.store_id, sum(amount) as gross
+from payment
+inner join rental on payment.rental_id = rental.rental_id
+inner join inventory on inventory.inventory_id = rental.inventory_id
+inner join store on store.store_id = inventory.store_id
+group by store.store_id;
+
+-- 7g. Write a query to display for each store its store ID, city, and country.
+
+select store.store_id, city.city, country.country
+from store
+inner join address on address.address_id = store.address_id
+inner join city on city.city_id = address.city_id
+inner join country on country.country_id = city.country_id;
+
+-- 7h. List the top five genres in gross revenue in descending order. (Hint: you may need to use the following tables: category, film_category, inventory, payment, and rental.)
+
+select name, sum(amount) as gross
+from category
+inner join film_category on film_category.category_id = category.category_id
+inner join inventory on inventory.film_id = film_category.film_id
+inner join rental on rental.inventory_id = inventory.inventory_id
+inner join payment on payment.rental_id = rental.rental_id
+group by name order by gross desc limit 5;
+
+-- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue. Use the solution from the problem above to create a view. If you haven't solved 7h, you can substitute another query to create a view.
+
+create view top_five_genres as
+	select name, sum(amount) as gross
+	from category
+	inner join film_category on film_category.category_id = category.category_id
+	inner join inventory on inventory.film_id = film_category.film_id
+	inner join rental on rental.inventory_id = inventory.inventory_id
+	inner join payment on payment.rental_id = rental.rental_id
+	group by name order by gross desc limit 5;
+
+-- 8b. How would you display the view that you created in 8a?
+
+select * from top_five_genres;
+
+
+-- 8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
+
+drop view if exists top_five_genres;
