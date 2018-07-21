@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wind Speeds</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+  </head>
+  <body class="all">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html">Summary: Lattitude vs. X ...</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots
+                          <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li>
+                              <a href="max_temp.html">Temperature</a>
+                          </li>
+                          <li>
+                              <a href="humid.html">Humidity</a>
+                          </li>
+                          <li>
+                              <a href="cloud.html">Cloudiness</a>
+                          </li>
+                          <li>
+                              <a href="wind.html">Wind Speed</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="comparison.html">Comparison</a>
+                  </li>
+                  <li>
+                      <a href="data.html">Data</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    
+      </nav>
+
+  <div class="container">
+    <div class="row row-grid">
+        <div class="col-md-8">
+            <div class="box box-left">
+                <section id="intro">
+                    <h1>Wind Speed</h1>
+                    <hr>
+                    <figure>
+                        <a target="_blank" href="images/windspeed.png">
+                            <img id="viz-main" src="images/windspeed.png" alt="Latitude vs Wind Speed">
+                        </a>
+                    </figure>
+
+                    <section id="summary">
+                        <p>
+                                There does not appear to be an observable trend in wind speed as you move away from the equator. However, the highest wind speeds are observed in the Southern Hemisphere
+                        </p>
+                    
+                    </section>
+
+                </section>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="box box-right">
+                <h2>Visualizations</h2>
+                <hr>
+
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3 col-md-6">
+                        <figure>
+                            <a href="max_temp.html">
+                                <img id="visual" src="images/max_temp.png" alt="Latitude vs. Temperature">
+                            </a>
+                        </figure>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 col-md-6">
+                        <figure>
+                            <a href="humid.html">
+                                <img id="visual" src="images/humidity.png" alt="Latitude vs. Humidity">
+                            </a>
+                        </figure>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 col-md-6">
+                        <figure>
+                            <a href="cloud.html">
+                                <img id="visual" src="images/cloudiness.png" alt="Latitude vs. Cloudiness">
+                            </a>
+                        </figure>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3 col-md-6">
+                        <figure>
+                            <a href="wind.html">
+                                <img id="visual" src="images/windspeed.png" alt="Latitude vs. Wind Speed">
+                            </a>
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+  <div class="col-md-12">
+      <div class="sigline">
+          <p>
+              Salil Deshpande | Data Analytics & Visualization |
+          </p>
+      </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous">
+      </script>
+  </body>
+</html>
