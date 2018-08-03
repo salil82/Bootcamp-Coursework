@@ -1,0 +1,23 @@
+
+.toolTip{
+    /* padding and margins */
+	position:absolute;
+	width:150px;
+	height:60px;
+    padding:2px;
+
+    /* font and text alignments */
+	font-size:14px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color:black;
+	text-align:center;
+	background:rgb(127, 203, 208);
+	border:1px;
+	border-radius:8px;
+}
+
+.axisText {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight:bold;
+	font-size:24px;
+}
